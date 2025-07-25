@@ -3,7 +3,7 @@ def main():
 
     from functools import lru_cache
 
-    integer_list = (3,5,-8,3)
+    integers = (3,5,-8,3,-3)
 
     @lru_cache(maxsize=None)  # Cache all results
     def identify_zerolist(integers: tuple[int, ...]) -> bool:
@@ -39,7 +39,7 @@ def main():
             else:
                 return second_list
 
-    sublist = find_sublist(integer_list)
+    sublist = find_sublist(integers)
 
     print(sublist)
 
