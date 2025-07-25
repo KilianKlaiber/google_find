@@ -3,16 +3,15 @@ def main():
 
     from functools import lru_cache
 
-    integers = (3,5,-8,3,-3)
+    integers = (3, 5, -8, 3, -3)
 
     @lru_cache(maxsize=None)  # Cache all results
     def identify_zerolist(integers: tuple[int, ...]) -> bool:
         """Check whether the list of integers adds up to zero"""
 
         if not isinstance(integers, tuple):
-            print("Error: Input must be of type tuple")
-            return tuple()
-        
+            raise TypeError("Error: Input must be of type tuple")
+
         if sum(integers) == 0:
             return True
         else:
@@ -20,11 +19,9 @@ def main():
 
     @lru_cache(maxsize=None)  # Cache all results
     def find_sublist(integers: tuple[int, ...]) -> tuple[int, ...]:
-        
         if not isinstance(integers, tuple):
-            print("Error: Input must be of type tuple")
-            return tuple()
-        
+            raise TypeError("Error: Input must be of type tuple")
+
         if identify_zerolist(integers):
             return integers
 
